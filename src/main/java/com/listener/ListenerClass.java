@@ -1,16 +1,13 @@
 package com.listener;
 
 
-import org.openqa.selenium.Cookie;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.browser.DriverManager;
 import com.reports.ExtentManager;
 import com.reports.ExtentReport;
 import com.reports.LogStatus;
-import com.utils.ReadPropertyFile;
 import com.utils.TestUtils;
 
 
@@ -25,7 +22,7 @@ public class ListenerClass implements ITestListener{
 		return TestcaseName;
 	}
 
-	public static void setTestcaseName(String testcaseName) {
+	private static void setTestcaseName(String testcaseName) {
 		TestcaseName = testcaseName;
 	}
 

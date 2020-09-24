@@ -6,13 +6,12 @@ import java.util.Date;
 
 import com.constants.Constants;
 import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 import com.utils.ReadPropertyFile;
 
 public class ExtentReport {
 
 	public static ExtentReports report=null;
-	public static String extentreportpath="";
+	private static String extentreportpath="";
 
 	//To avoid external initialization
 	private ExtentReport() {

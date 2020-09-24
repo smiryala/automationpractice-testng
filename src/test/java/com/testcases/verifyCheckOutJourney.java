@@ -2,18 +2,17 @@ package com.testcases;
 
 import com.pages.HomePage;
 import com.pages.OrderPage;
-import com.pages.SignInPage;
 import com.pages.WomenSummerDressesPage;
 import org.testng.annotations.Test;
 
 public class verifyCheckOutJourney extends BaseTest{
 
-	WomenSummerDressesPage summerdresspage;
-	HomePage homepage;
-	OrderPage orderpage;
+	private WomenSummerDressesPage summerdresspage;
+	private HomePage homepage;
+	private OrderPage orderpage;
 	
-	@Test(description = " Verify the checkout journey by adding any product to the cart.")
-	public void verifyCheckOutJourney() {
+	@Test(description = "Verify guest user is able to successfully checkout the cart")
+	public void verifyCheckOutJourneyE2E() {
 		homepage =new HomePage();
 		summerdresspage=new WomenSummerDressesPage();
 		orderpage=new OrderPage();

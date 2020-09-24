@@ -2,56 +2,19 @@ package com.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.Base64;
-import java.util.HashMap;
-import java.util.Hashtable;
-
-import java.util.List;
 
 import java.util.Random;
-
-
-import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.mail.DefaultAuthenticator;
-import org.apache.commons.mail.Email;
-import org.apache.commons.mail.EmailAttachment;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.HtmlEmail;
-import org.apache.commons.mail.MultiPartEmail;
-import org.apache.commons.mail.SimpleEmail;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.util.ArrayUtil;
 import org.apache.poi.util.IOUtils;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.DataProvider;
 
-import com.browser.Driver;
 import com.browser.DriverManager;
-import com.constants.Constants;
 import com.listener.ListenerClass;
-import com.reports.ExtentReport;
-import com.reports.LogStatus;
-
-
 
 
 /*
@@ -60,7 +23,7 @@ import com.reports.LogStatus;
  */
 public class TestUtils {
 
-	public static String screenshotPath=ReadPropertyFile.get("ScreenshotPath");
+	private static final String screenshotPath=ReadPropertyFile.get("ScreenshotPath");
 
 	/*
 	 * Takes screenshot
@@ -124,7 +87,7 @@ public class TestUtils {
 			byte[] imageBytes = IOUtils.toByteArray(is);
 			base64 = Base64.getEncoder().encodeToString(imageBytes);
 		}
-		catch (Exception e) {
+		catch (Exception ignored) {
 		}
 		return base64;
 	}

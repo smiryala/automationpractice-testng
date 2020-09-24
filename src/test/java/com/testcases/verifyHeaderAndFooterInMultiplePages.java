@@ -5,9 +5,9 @@ import com.pages.HomePage;
 
 public class verifyHeaderAndFooterInMultiplePages extends BaseTest{
 
-	HomePage homepage;
+	private HomePage homepage;
 	
-	@Test(description = "Navigate to multiple pages of the website and verify for header and footer")
+	@Test(description = "Navigate to multiple pages of the website and verify for header and footer availability")
 	public void verifyHeaderAndFooter() {
 		homepage=new HomePage();
 		homepage.isHeaderDisplayed();

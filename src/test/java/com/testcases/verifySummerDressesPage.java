@@ -1,19 +1,19 @@
 package com.testcases;
 
 import com.pages.HomePage;
-import com.pages.SignInPage;
 import com.pages.WomenSummerDressesPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.Objects;
 
 import static com.pages.WomenSummerDressesPage.soft;
 
 public class verifySummerDressesPage extends BaseTest{
 	
-	HomePage homepage;
-	WomenSummerDressesPage summerdresspage;
+	private HomePage homepage;
+	private WomenSummerDressesPage summerdresspage;
 	
-	@Test(description = "Validate summer dresses listing page")
+	@Test(description = "Validate summer dresses listing page by verifying the filters and sortby functionality")
 	public void verifySummerDressListingPage() {
 		homepage =new HomePage();
 		summerdresspage=new WomenSummerDressesPage();
@@ -25,7 +25,7 @@ public class verifySummerDressesPage extends BaseTest{
 		summerdresspage.clickOnColourFilter();
 		String filterCount = summerdresspage.getColourFilterCount();
 		String containersCount = Integer.toString(summerdresspage.getContainersCount());
-		soft.assertTrue(filterCount==containersCount,"Color filter is not working as expected");
+		soft.assertTrue(Objects.equals(filterCount, containersCount),"Color filter is not working as expected");
 
 		summerdresspage.selectSortBy("Price: Lowest first");
 		summerdresspage.verifyAscendingOrderProductPrice();

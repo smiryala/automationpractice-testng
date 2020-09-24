@@ -1,18 +1,12 @@
 package com.browser;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-import com.constants.Constants;
 import com.reports.LogStatus;
 import com.utils.ReadPropertyFile;
 
@@ -27,11 +21,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  */
 
 public class Driver {
-	public  WebDriver driver=null;
-	public DesiredCapabilities capability;
+	private WebDriver driver=null;
 
-	private Driver() throws MalformedURLException 
-	{
+	private Driver() {
 		startBrowserForLocal();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Integer.parseInt(ReadPropertyFile.get("WaitTime")), TimeUnit.SECONDS);
@@ -67,16 +59,8 @@ public class Driver {
 			try {
 			new Driver();
 			}
-		catch(Exception e) {
+		catch(Exception ignored) {
 			
 		}
 	}
-
-	public static void quit() {
-		if(DriverManager.getDriver()!=null) {
-			DriverManager.getDriver().quit();
-		}
-	}
-
-
 }

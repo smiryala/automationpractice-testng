@@ -1,10 +1,6 @@
 package com.pages;
 
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,7 +10,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-import com.browser.Driver;
 import com.browser.DriverManager;
 import com.constants.Constants;
 import com.reports.LogStatus;
@@ -52,6 +47,7 @@ public class BasePage {
 	public void sendkeys(WebElement element, String text)  {
 		explicitlyWait(element);
 		highlightElement(element);
+		element.clear();
 		element.sendKeys(text);
 		LogStatus.pass(text + " is entered in to the "+ element);
 		LogStatus.pass(text + " is entered in to the "+ element, TestUtils.pullScreenshotPath());

@@ -1,102 +1,103 @@
 package com.pages;
 
+import com.constants.Constants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class OrderPage extends BasePage{
 
 	@FindBy(xpath="//span[contains(text(),'Proceed to checkout')]")
-	WebElement proceedToCheckOut;
+	private WebElement proceedToCheckOut;
 
 	@FindBy(xpath="//p[@class='cart_navigation clearfix']//span[contains(text(),'Proceed to checkout')]")
-	WebElement cartNavProceedToCheckOut;
+	private WebElement cartNavProceedToCheckOut;
 
 	@FindBy(xpath="//input[@name='email_create']")
-	WebElement emailGuest;
+	private WebElement emailGuest;
 
 	@FindBy(xpath="//button[@id='SubmitCreate']")
-	WebElement emailGuestCreate;
+	private WebElement emailGuestCreate;
 
 	@FindBy(xpath="(//input[@name='id_gender'])[1]")
-	WebElement personalInfoMr;
+	private WebElement personalInfoMr;
 
 	@FindBy(xpath="//input[@name='customer_firstname']")
-	WebElement personalInfoFirstName;
+	private WebElement personalInfoFirstName;
 
 	@FindBy(xpath="//input[@name='customer_lastname']")
-	WebElement personalInfoLastName;
+	private WebElement personalInfoLastName;
 
 	@FindBy(xpath="//input[@name='passwd']")
-	WebElement personalInfoPwd;
+	private WebElement personalInfoPwd;
 
 	@FindBy(xpath="//select[@name='days']")
-	WebElement personalInfoDOBDay;
+	private WebElement personalInfoDOBDay;
 
 	@FindBy(xpath="//select[@name='months']")
-	WebElement personalInfoDOBMonth;
+	private WebElement personalInfoDOBMonth;
 
 	@FindBy(xpath="//select[@name='years']")
-	WebElement personalInfoDOBYear;
+	private WebElement personalInfoDOBYear;
 
 	@FindBy(xpath="//input[@name='firstname']")
-	WebElement addressFirstName;
+	private WebElement addressFirstName;
 
 	@FindBy(xpath="//input[@name='lastname']")
-	WebElement addressLastName;
+	private WebElement addressLastName;
 
 	@FindBy(xpath="//input[@name='company']")
-	WebElement addressCompany;
+	private WebElement addressCompany;
 
 	@FindBy(xpath="//input[@name='address1']")
-	WebElement addressLine1;
+	private WebElement addressLine1;
 
 	@FindBy(xpath="//input[@name='address2']")
-	WebElement addressLine2;
+	private WebElement addressLine2;
 
 	@FindBy(xpath="//input[@name='city']")
-	WebElement addressCity;
+	private WebElement addressCity;
 
 	@FindBy(xpath="//select[@name='id_state']")
-	WebElement addressState;
+	private WebElement addressState;
 
 	@FindBy(xpath="//input[@name='postcode']")
-	WebElement addressPostCode;
+	private WebElement addressPostCode;
 
 	@FindBy(xpath="//select[@name='id_country']")
-	WebElement addressCountry;
+	private WebElement addressCountry;
 
 	@FindBy(xpath="//textarea[@name='other']")
-	WebElement addressOtherInfo;
+	private WebElement addressOtherInfo;
 
 	@FindBy(xpath="//input[@name='phone']")
-	WebElement addressHomePhone;
+	private WebElement addressHomePhone;
 
 	@FindBy(xpath="//input[@name='phone_mobile']")
-	WebElement addressMobilePhone;
+	private WebElement addressMobilePhone;
 
 	@FindBy(xpath="//input[@name='alias']")
-	WebElement addressAlias;
+	private WebElement addressAlias;
 
 	@FindBy(xpath="//button[@name='submitAccount']")
-	WebElement addressSubmit;
+	private WebElement addressSubmit;
 
 	@FindBy(xpath="//button[@name='processAddress']")
-	WebElement addressProcess;
+	private WebElement addressProcess;
 
 	@FindBy(xpath="//label[@for='cgv']")
-	WebElement cgv;
+	private WebElement termsAndConditions;
 
 	@FindBy(xpath="//button[@name='processCarrier']")
-	WebElement processCarrier;
+	private WebElement processCarrier;
 
 	@FindBy(xpath="//a[@class='bankwire']")
-	WebElement bankWire;
+	private WebElement bankWire;
 
 	@FindBy(xpath="//span[contains(text(),'I confirm my order')]")
-	WebElement confirmOrder;
+	private WebElement confirmOrder;
 
 	@FindBy(xpath="//strong[contains(text(),'Your order on My Store is complete.')]")
-	WebElement orderConfirmation;
+	private WebElement orderConfirmation;
 
 	public void proceedAsGuest(){
 		click(proceedToCheckOut);
@@ -106,31 +107,31 @@ public class OrderPage extends BasePage{
 	}
 	public void registerAddress(){
 		click(personalInfoMr);
-		sendkeys(personalInfoFirstName,"First Name");
-		sendkeys(personalInfoLastName,"Last Name");
-		sendkeys(personalInfoPwd,"P@ssword");
-		selectByValue(personalInfoDOBDay,"2");
-		selectByValue(personalInfoDOBMonth,"2");
-		selectByValue(personalInfoDOBYear,"1985");
+		sendkeys(personalInfoFirstName, Constants.PERSONALINFO_FIRSTNAME);
+		sendkeys(personalInfoLastName,Constants.PERSONALINFO_LASTNAME);
+		sendkeys(personalInfoPwd,Constants.PERSONALINFO_USERPWD);
+		selectByValue(personalInfoDOBDay,Constants.PERSONALINFO_DOBDAY);
+		selectByValue(personalInfoDOBMonth,Constants.PERSONALINFO_DOBMONTH);
+		selectByValue(personalInfoDOBYear,Constants.PERSONALINFO_DOBYEAR);
 
-		sendkeys(addressFirstName,"Address FName");
-		sendkeys(addressLastName,"Address LName");
-		sendkeys(addressCompany,"Address Company");
-		sendkeys(addressLine1,"Address line1");
-		sendkeys(addressCity,"Address line1");
-		selectByVisibleText(addressState,"Alabama");
-		sendkeys(addressPostCode,"12345");
-		selectByVisibleText(addressCountry,"United States");
-		sendkeys(addressOtherInfo,"test");
-		sendkeys(addressHomePhone,"12345678");
-		sendkeys(addressMobilePhone,"12345648");
-		sendkeys(addressAlias,"111");
+		sendkeys(addressFirstName,Constants.ADDRESS_FIRSTNAME);
+		sendkeys(addressLastName,Constants.ADDRESS_LASTNAME);
+		sendkeys(addressCompany,Constants.ADDRESS_COMPANY);
+		sendkeys(addressLine1,Constants.ADDRESS_LINE1);
+		sendkeys(addressCity,Constants.ADDRESS_CITY);
+		selectByVisibleText(addressState,Constants.ADDRESS_STATE);
+		sendkeys(addressPostCode,Constants.ADDRESS_POSTALCODE);
+		selectByVisibleText(addressCountry,Constants.ADDRESS_COUNTRY);
+		sendkeys(addressOtherInfo,Constants.ADDRESS_OTHERINFO);
+		sendkeys(addressHomePhone,Constants.ADDRESS_HOMEPHONE);
+		sendkeys(addressMobilePhone,Constants.ADDRESS_MOBILEPHONE);
+		sendkeys(addressAlias,Constants.ADDRESS_ALIAS);
 		click(addressSubmit);
 		click(addressProcess);
 	}
 
 	public void processShipping(){
-		click(cgv);
+		click(termsAndConditions);
 		click(processCarrier);
 	}
 

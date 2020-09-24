@@ -4,7 +4,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 
 public class ExtentManager {
 	
-public static ThreadLocal<ExtentTest> exTest= new ThreadLocal<ExtentTest>();
+private static final ThreadLocal<ExtentTest> exTest= new ThreadLocal<ExtentTest>();
 
 	public static ExtentTest getExtTest() {
 		return exTest.get();

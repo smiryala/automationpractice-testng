@@ -1,8 +1,5 @@
 package com.testcases;
 
-import java.awt.Desktop;
-import java.io.File;
-
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -11,7 +8,6 @@ import org.testng.annotations.BeforeSuite;
 import com.browser.Driver;
 import com.browser.DriverManager;
 import com.reports.ExtentReport;
-import com.utils.TestUtils;
 
 public class BaseTest {
 
@@ -30,12 +26,12 @@ public class BaseTest {
 	}
 
 	@BeforeSuite
-	public void beforeSuite() throws Exception {
+	public void beforeSuite() {
 		ExtentReport.initialize();
 	}
 
 	@AfterSuite
-	public void afterSuite() throws Exception {
+	public void afterSuite() {
 		ExtentReport.report.flush();
 //		File htmlFile = new File(ExtentReport.extentreportpath);
 //		Desktop.getDesktop().browse(htmlFile.toURI());
